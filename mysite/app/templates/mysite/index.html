@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+<h1>
+    TESTING SHITS
+</h1>
+<br>
+<form action="{% url 'testing' %}" method="post">
+    {% csrf_token %}
+    name<input type="text" name="name" required><br>
+    age<input type="number" name="age" required><br>
+    <input type="submit" name="submit" value="POST">
+</form>
+<h1>DATA</h1>
+<br>
+{% for data in datas %}
+    {{ data.name }} {{ data.age }}&nbsp;<a href="{% url 'delete' data.id %}">Delete this shit</a> <br>
+{% endfor %}
+</body>
+</html>
